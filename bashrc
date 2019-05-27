@@ -16,7 +16,6 @@ function detect_venv {
             deactivate
             return
         fi
-        # PS1="\[\033[0;37m\](\$(basename $VIRTUAL_ENV))${PS1}"
         PS1="(\$(basename $VIRTUAL_ENV))${PS1}"
         return
     fi
@@ -52,12 +51,11 @@ function detect_venv {
     export _DIR=$PWD
 }
 
-. ~/.git-prompt.sh
 
 #Git prompt
-PROMPT_COMMAND='GIT_PS1_SHOWCOLORHINTS=1;\
+    . ~/.git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1;\
-    __git_ps1 "\[\e[1;33m\][\d \t \w\[\e[m\]" "\[\e[1;33m\]]\$\[\e[m\] ";'"detect_venv"
+    __git_ps1 "\[\e[1;0m\][\d \t \w\[\e[m\]" "\[\e[1;0m\]]\$\[\e[m\] ";'"detect_venv"
 
 
 # Aliases
